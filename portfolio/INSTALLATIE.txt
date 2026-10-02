@@ -1,0 +1,78 @@
+================================================
+PORTFOLIO WEBSITE - KORTE INSTALLATIE-INSTRUCTIE
+================================================
+
+STAP 1 — Database importeren
+-----------------------------
+1. Open phpMyAdmin (bijv. http://localhost/phpmyadmin)
+2. Klik bovenin op "Importeren"
+3. Kies het bestand: database.sql
+4. Klik op "Uitvoeren"
+   -> Je hebt nu een database "portfolio_db" met projecten en 1 testgebruiker.
+
+STAP 2 — Databaseverbinding instellen
+-------------------------------------
+Open: database.php
+
+Pas eventueel de username / password aan, afhankelijk van jouw lokale setup:
+- MAMP:    username = 'root'      password = 'root'
+- XAMPP:   username = 'root'      password = ''  (leeg)
+- Docker:  wat jij in je docker-compose hebt ingesteld
+
+STAP 3 — Project starten
+------------------------
+Zet de map 'portfolio' in je webserver-map (htdocs / sites / docroot).
+Open daarna: http://localhost/portfolio/
+
+(Of welk pad jij ook gebruikt op jouw lokale server.)
+
+================================================
+TEST LOGIN
+================================================
+E-mail:     admin@portfolio.nl
+Wachtwoord: admin123
+
+================================================
+CHECKLIST — WAT MOET JE TESTEN?
+================================================
+[ ] Overzichtspagina laat alle projecten zien
+[ ] Zoeken op titel werkt (bv. zoek "portfolio")
+[ ] Filteren op jaar werkt
+[ ] Zoeken + filter samen werkt
+[ ] Pagination werkt (ga naar pagina 2)
+[ ] Pagination behoudt zoekwoord/filter op volgende pagina
+[ ] Detailpagina werkt (klik "View" bij een project)
+[ ] Niet-bestaand project tonen: detail.php?id=9999 -> "Project niet gevonden."
+[ ] Inloggen met correct wachtwoord werkt
+[ ] Inloggen met verkeerd wachtwoord geeft foutmelding
+[ ] Uitloggen werkt
+[ ] Zonder inloggen: knoppen Edit/Delete/Toevoegen NIET zichtbaar
+[ ] Zonder inloggen: handmatig naar add.php -> wordt naar login.php gestuurd
+[ ] Zonder inloggen: handmatig naar edit.php?id=1 -> wordt naar login.php gestuurd
+[ ] Zonder inloggen: handmatig naar delete.php?id=1 -> wordt naar login.php gestuurd
+[ ] Ingelogd: nieuw project toevoegen werkt (met en zonder afbeelding)
+[ ] Ingelogd: project aanpassen werkt
+[ ] Ingelogd: afbeelding behoudt wanneer je geen nieuwe uploadt
+[ ] Ingelogd: project verwijderen werkt (met bevestiging)
+
+================================================
+PROJECTSTRUCTUUR
+================================================
+portfolio/
+├── index.php            (overzicht + zoeken + filter + pagination)
+├── detail.php           (één project)
+├── login.php            (inloggen)
+├── logout.php           (uitloggen)
+├── add.php              (nieuw project - alleen ingelogd)
+├── edit.php             (project aanpassen - alleen ingelogd)
+├── delete.php           (project verwijderen - alleen ingelogd)
+├── database.php         (PDO verbinding)
+├── database.sql         (importeren in phpMyAdmin)
+├── includes/
+│   ├── header.php       (bovenkant van elke pagina)
+│   ├── footer.php       (onderkant van elke pagina)
+│   └── check_login.php  (hulpje: controleer of iemand ingelogd is)
+├── css/
+│   └── style.css
+├── uploads/             (geüploade afbeeldingen komen hier)
+└── images/              (eventuele vaste afbeeldingen)

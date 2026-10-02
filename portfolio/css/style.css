@@ -1,0 +1,42 @@
+/* Extra styling bovenop Bootstrap */
+
+body {
+    background-color: #f8f9fa;
+}
+
+.project {
+    background: #fff;
+}
+
+.project h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0.25rem;
+}
+
+/* Kleine afbeelding op het overzicht */
+.project-thumb {
+    width: 120px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 6px;
+    flex-shrink: 0;
+}
+
+/* Grote afbeelding op de detailpagina */
+.project-detail-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/* Zorg dat de pagination nummers mooi uitlijnen */
+.pagination .page-link {
+    color: #0d6efd;
+}
+
+.pagination .page-item.active .page-link {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    color: #fff;
+}
